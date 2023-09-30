@@ -1,0 +1,134 @@
+<div class="container mt-3">
+  <div class="row">
+    <p class="h3 text-danger fw-bold">Contactos
+      <a class="btn btn-danger btn-sm" routerLink="/contacts/add">
+        <i class="fa fa-plus-circle"></i> Agregar
+      </a>
+    </p>
+    <p class="fst-italic">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur debitis, dolorem earum et, exercitationem
+      facere itaque iure numquam obcaecati quas quibusdam quisquam recusandae velit! Aut inventore nesciunt quod ratione
+      ullam?
+    </p>
+
+    <form>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col">
+              <input class="form-control" placeholder="Buscar contacto" type="text">
+            </div>
+            <div class="col">
+              <input class="btn btn-outline-dark" type="submit">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!--<pre> {{ contacts | json}} </pre>-->
+<!--Loading spiner-->
+
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
+<!--errorMensaje-->
+<div *ngIf="!loading && errorMessage">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h4 text-danger fw-bold"> {{errorMessage}} </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Seccion cards-->
+<div *ngIf="!loading && contacts.length > 0" class="container mt-3">
+  <div class="row">
+    <div *ngFor="let contact of contacts" class="col-md-6">
+      <div class="card list-group-item-danger shadow-lg my-2">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <img [src]="contact.imageUrl"
+                   alt="imagen usuario"
+                   class="contact-image">
+            </div>
+            <div class="col-sm-7">
+              <ul class="list-group">
+                <li class="list-group-item">Name: <span class="fw-bold">  {{contact.name}} </span></li>
+                <li class="list-group-item">Email: <span class="fw-bold"> {{contact.email}} </span></li>
+                <li class="list-group-item">Cell: <span class="fw-bold"> {{contact.mobile}} </span></li>
+              </ul>
+            </div>
+            <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center ">
+              <a class="btn  btn-warning my-1" routerLink="/contacts/view/{{contact.id}}">
+                <i class="fa fa-eye"></i>
+              </a>
+              <a class="btn  btn-primary  my-1" routerLink="/contacts/edit/{{contact.id}}">
+                <i class="fa fa-pen"></i>
+              </a>
+              <!-- Resto del código HTML -->
+
+              <button (click)="clickDeleteContact(contact.id)" class="btn btn-danger my-1" data-bs-target="#deleteConfirmationModal"
+                      data-bs-toggle="modal">
+                <i class="fa fa-trash-alt"></i>
+              </button>
+
+              http://localhost:5001/api/Productos/2
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="deleteConfirmationModalLabel" class="modal fade" id="deleteConfirmationModal"
+     tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmar eliminación</h5>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar este contacto?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancelar</button>
+        <button (click)="confirmDeleteContact()" class="btn btn-danger" type="button">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

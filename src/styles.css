@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+
+/*estilos globales*/
+body {
+  font-family: 'Roboto', sans-serif !important;
+  background-color: #fcebe7 !important;
+}
+
+.contact-image {
+  width: 150px;
+  border-radius: 50%;
+}

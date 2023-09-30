@@ -1,0 +1,67 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <p class="h3 fw-bold text-danger"> Ver Contacto </p>
+      <p class="fst-italic">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem ducimus enim ex ratione, temporibus vel
+        voluptate voluptatem! Corporis, delectus dolores ducimus explicabo magni minus officia omnis placeat repellat
+        sit suscipit.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!--Ver contacto-->
+
+
+<div *ngIf="!loading && isNotEmpty()" class="container">
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+      <img [src]="contact.imageUrl" alt="ver usuario"
+           class="contact-image__big">
+    </div>
+
+    <div class="col-sm-6">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-danger">Name: <span class="fw-bold"> {{contact.name}} </span></li>
+        <li class="list-group-item list-group-item-danger">Email: <span class="fw-bold"> {{contact.email}} </span></li>
+        <li class="list-group-item list-group-item-danger">Cell: <span class="fw-bold"> {{contact.mobile}} </span></li>
+        <li class="list-group-item list-group-item-danger">Colegio: <span class="fw-bold"> {{contact.company}} </span>
+        </li>
+        <li class="list-group-item list-group-item-danger">Titulo: <span class="fw-bold">{{contact.title}}</span></li>
+        <li class="list-group-item list-group-item-danger">Group Name: <span class="fw-bold">{{group.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <a class="btn btn-danger" routerLink="/">
+        <i class="fa fa-arrow-left"> </i> Regresar
+      </a>
+    </div>
+
+    <!--    <pre>  {{group | json}}</pre>-->
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
